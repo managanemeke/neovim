@@ -38,3 +38,5 @@ map('n', '<S-F4>', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], de
 map('n', '<F8>', ':TagbarToggle<CR>', default_opts)
 -- <F4> Дерево файлов. Для иконок следует установить Nerd Font
 map('n', '<F4>', ':NvimTreeRefresh<CR>:NvimTreeToggle<CR>', default_opts)
+---
+vim.keymap.set({'n', 'x'}, '<leader>c', '"+y', { desc = 'Yank to clipboard' })
