@@ -106,5 +106,23 @@ return require('packer').startup(function(use)
       })
     end
   })
+
+  --- git
+
+  use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  })
+
+  use({
+    'YouSame2/inlinediff-nvim',
+    config = function()
+      require('inlinediff').setup({})
+    end
+  })
+
+  ---
   
 end)

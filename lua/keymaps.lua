@@ -38,6 +38,32 @@ map('n', '<S-F4>', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], de
 map('n', '<F8>', ':TagbarToggle<CR>', default_opts)
 -- <F4> Дерево файлов. Для иконок следует установить Nerd Font
 map('n', '<leader>f', ':NvimTreeRefresh<CR>:NvimTreeToggle<CR>', { desc = 'Toggle files tree' })
+
+--- git
+
+vim.keymap.set(
+  'n',
+  '<leader>d',
+  function()
+    require('inlinediff').toggle()
+  end,
+  { desc = 'Git: Differences toggle' }
+)
+
+vim.keymap.set(
+  'v',
+  '<leader>u',
+  function()
+    local s = vim.fn.line('v')
+    local e = vim.fn.line('.')
+    if s > e then s, e = e, s end
+    require('gitsigns').reset_hunk({ s, e })
+  end,
+  { desc = 'Git: Undo selected' }
+)
+
+---
+
 ---
 vim.keymap.set({'n', 'x'}, '<leader>c', '"+y', { desc = 'Yank to clipboard' })
 vim.keymap.set({'n', 'x'}, '<leader>v', '"+p', { desc = 'Paste from clipboard' })
