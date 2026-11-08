@@ -98,7 +98,7 @@ return require('packer').startup(function(use)
     'm4xshen/smartcolumn.nvim',
     config = function()
       require("smartcolumn").setup({
-        colorcolumn = "50",
+        colorcolumn = "60",
         disabled_filetypes = {},
         custom_colorcolumn = {},
         scope = "file",
