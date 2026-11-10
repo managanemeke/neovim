@@ -1,9 +1,13 @@
 *
+
 !.editorconfig
 !.gitignore
+!*.lua
+
 !/lua/
-!/lua/*.lua
-!/init.lua
+!/lua/*/
+!/lua/*/*/
+!/lua/*/*/*/
 !/readme.md
 !/todo.txt
 
