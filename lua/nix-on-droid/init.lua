@@ -1,2 +1,2 @@
-require('globals/settings/1_clipboard')
+require('globals.settings.1_clipboard')
 
