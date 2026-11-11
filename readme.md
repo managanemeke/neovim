@@ -1,4 +1,12 @@
-# nvim-config
+# neovim
+
+Configuration for [neovim][1].
+
+## installation oneliner
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/managanemeke/neovim/main/install.sh | bash
+```
 
 ## install all on android-termux
 
@@ -87,3 +95,6 @@ nvim lua/plugins.lua
 
 - [one-nvim-to-rule-them-all](https://habr.com/ru/articles/706110/)
 - [fastest-vimer](https://youtu.be/y6VJBeZEDZU?si=_-0nfEhPhGH4DaEQ)
+
+[1]: https://github.com/neovim/neovim "neovim"
+
