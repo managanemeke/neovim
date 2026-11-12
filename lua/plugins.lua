@@ -89,8 +89,8 @@ return require('packer').startup(function(use)
   ---------------------------------------------------------
   -- РАЗНОЕ
   ---------------------------------------------------------
-  
-  
+
+
   -- nvim commands working even with russuan layout
   use 'powerman/vim-plugin-ruscmd'
 
@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
         disabled_filetypes = {},
         custom_colorcolumn = {},
         scope = "file",
-        editorconfig = true, 
+        editorconfig = true,
       })
     end
   })
@@ -123,6 +123,16 @@ return require('packer').startup(function(use)
     end
   })
 
+  use({
+    'tpope/vim-fugitive',
+  })
+
+  use({
+    'rbong/vim-flog',
+    requires = 'tpope/vim-fugitive',
+    cmd = { 'Flog', 'Flogsplit', 'Floggit' },
+  })
+
   ---
-  
+
 end)
