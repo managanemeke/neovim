@@ -41,15 +41,6 @@ return require('packer').startup(function(use)
   end, }
   --- popup окошки
   use 'nvim-lua/popup.nvim'
-  ---------------------------------------------------------
-  -- ПОИСК
-  ---------------------------------------------------------
-  -- Наш FuzzySearch
-  use { 'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} },
-      config = function()
-      require'telescope'.setup {}
-  end, }
 
   ---------------------------------------------------------
   -- КОД
