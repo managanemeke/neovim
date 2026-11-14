@@ -79,7 +79,7 @@ vim.keymap.set(
 )
 vim.keymap.set(
   't',
-  '<leader>n',
+  'jk',
   [[<C-\><C-n>]],
   {
     desc = "Exit terminal mode"
