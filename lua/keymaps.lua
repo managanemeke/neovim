@@ -72,9 +72,9 @@ vim.keymap.set({'n', 'x'}, '<leader>v', '"+p', { desc = 'Paste from clipboard' }
 vim.keymap.set(
   'n',
   '<leader>t',
-  ':tabnew | terminal<CR>a',
+  ':terminal<CR>a',
   {
-    desc = 'Open terminal in new tab',
+    desc = 'Open terminal in new buffer',
   }
 )
 ---
