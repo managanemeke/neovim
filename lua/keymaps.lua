@@ -77,5 +77,13 @@ vim.keymap.set(
     desc = 'Open terminal in new buffer',
   }
 )
+vim.keymap.set(
+  't',
+  '<leader>n',
+  [[<C-\><C-n>]],
+  {
+    desc = "Exit terminal mode"
+  }
+)
 ---
 
