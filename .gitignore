@@ -8,6 +8,7 @@
 !/lua/*/
 !/lua/*/*/
 !/lua/*/*/*/
+!/done.txt
 !/install.sh
 !/readme.md
 !/todo.txt
