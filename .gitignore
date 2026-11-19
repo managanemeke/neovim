@@ -10,6 +10,7 @@
 !/lua/*/*/*/
 !/done.txt
 !/install.sh
+!/install.nu
 !/readme.md
 !/todo.txt
 
