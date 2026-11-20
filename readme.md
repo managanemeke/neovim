@@ -2,10 +2,10 @@
 
 Configuration for [neovim][1].
 
-## installation oneliner
+## oneliner
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/managanemeke/neovim/main/install.sh | bash
+nu -c "http get https://raw.githubusercontent.com/managanemeke/neovim/main/install.nu | save -f install.nu; nu install.nu; rm install.nu"
 ```
 
 ## install all on android-termux
