@@ -5,7 +5,7 @@ Configuration for [neovim][1].
 ## oneliner
 
 ```bash
-nu -c "http get https://raw.githubusercontent.com/managanemeke/neovim/main/install.nu | save -f /tmp/install.nu; nu /tmp/install.nu; rm /tmp/install.nu"
+nu -c "http get https://raw.githubusercontent.com/managanemeke/neovim/main/install.nu | save -f i.nu; nu i.nu; rm i.nu"
 ```
 
 ## install all on android-termux
