@@ -12,5 +12,6 @@
 !/install.sh
 !/install.nu
 !/readme.md
+!/justfile
 !/todo.txt
 
