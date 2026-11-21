@@ -62,6 +62,27 @@ vim.keymap.set(
 
 ---
 
+--- search
+
+vim.keymap.set(
+  'n',
+  '<leader>sf',
+  function()
+    require('fzf-lua').files()
+  end,
+  { desc = 'Search file' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>ss',
+  function()
+    require('fzf-lua').live_grep()
+  end,
+  { desc = 'Search string' }
+)
+
+---
+
 --- files
 
 vim.keymap.set(
