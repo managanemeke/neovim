@@ -135,6 +135,10 @@ return require('packer').startup(function(use)
     end,
   })
 
+  use({
+    'ibhagwan/fzf-lua',
+  })
+
   ---
 
 end)
