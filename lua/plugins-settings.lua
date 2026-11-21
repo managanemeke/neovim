@@ -40,14 +40,3 @@ cmp.setup {
     },
 }
 
---- nvim-tree
-
-require("nvim-tree").setup({
-  filters = {
-    dotfiles = false,
-    git_ignored = false,
-  },
-})
-
----
-
