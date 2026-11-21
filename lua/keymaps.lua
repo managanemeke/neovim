@@ -36,8 +36,6 @@ map('n', '<S-F4>', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], de
 -----------------------------------------------------------
 -- <F8>  Показ дерева классов и функций, плагин majutsushi/tagbar
 map('n', '<F8>', ':TagbarToggle<CR>', default_opts)
--- <F4> Дерево файлов. Для иконок следует установить Nerd Font
-map('n', '<leader>f', ':NvimTreeRefresh<CR>:NvimTreeToggle<CR>', { desc = 'Toggle files tree' })
 
 --- git
 
@@ -60,6 +58,17 @@ vim.keymap.set(
     require('gitsigns').reset_hunk({ s, e })
   end,
   { desc = 'Git: Undo selected' }
+)
+
+---
+
+--- files
+
+vim.keymap.set(
+  "n",
+  "<leader>f",
+  "<CMD>Oil<CR>",
+  { desc = "Toggle files" }
 )
 
 ---
