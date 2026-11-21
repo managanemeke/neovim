@@ -117,3 +117,14 @@ vim.keymap.set(
 )
 ---
 
+--- default
+
+vim.keymap.set(
+  'x',
+  '.',
+  ':normal .<CR>',
+  { desc = 'Repeat in visual mode' }
+)
+
+---
+
