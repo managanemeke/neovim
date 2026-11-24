@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-let home = $nu.home-path
+let home = ~
 let share = $"($home)/.local/share"
 let nvim = "nvim"
 
