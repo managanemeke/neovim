@@ -1,38 +1,48 @@
 #!/usr/bin/env nu
 
-let home = $nu.home-dir
-let share = $"($home)/.local/share"
-let nvim = "nvim"
-let config = $"($home)/.config"
-let config_nvim = $"($config)/($nvim)"
-
-def create_backup [] {
-  let source = $config_nvim
-  let destination = $"($config)/($nvim)_backup/"
-  rm -rf $"($destination)"
-  if ($source | path exists) {
-    mv $"($source)" $"($destination)"
-  }
+def nvim-path [kind: string] {
+  let command = ('lua io.write(vim.fn.stdpath("' + $kind + '"))')
+  ^nvim --headless -u NONE -i NONE -c $command -c qa
 }
-create_backup
 
-if not ($config | path exists) {
-  mkdir $"($config)"
+def clone-config [checkout: path] {
+  ^git clone https://github.com/managanemeke/neovim $checkout
+  rm -r ($checkout | path join .git)
 }
-cd $"($config)"
-git clone "https://github.com/managanemeke/neovim" $nvim
-cd $nvim
-rm -rf ".git"
-cd -
 
-def install_packer [] {
-  let start = $"($share)/nvim/site/pack/packer/start"
-  let target = $"($start)/packer.nvim"
-  rm -rf $target
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim $target
-  if $env.LAST_EXIT_CODE != 0 { return 1 }
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  echo "Packer installed and synced."
+def ensure-packer [packer: path] {
+  if ($packer | path exists) { return }
+  mkdir ($packer | path dirname)
+  ^git clone --depth 1 https://github.com/wbthomason/packer.nvim $packer
 }
-install_packer
 
+def backup-config [config: path] {
+  let backup = $'($config)_backup-(date now | format date "%Y%m%d-%H%M%S-%f")'
+  mv $config $backup
+  print $'Previous configuration moved to ($backup)'
+}
+
+# Load the plugin list without running settings that require uninstalled plugins.
+def sync-plugins [] {
+  (^nvim --headless -u NONE -i NONE -c 'autocmd User PackerComplete quitall'
+    -c 'lua vim.opt.runtimepath:prepend(vim.fn.stdpath("config")); require("plugins")'
+    -c 'PackerSync')
+}
+
+let config = (nvim-path config | str trim)
+let data = (nvim-path data | str trim)
+let config_parent = ($config | path dirname)
+let packer = ($data | path join site pack packer start packer.nvim)
+
+mkdir $config_parent
+let staging = (mktemp -d -p $config_parent 'nvim-install.XXXXXXXX')
+let checkout = ($staging | path join config)
+clone-config $checkout
+ensure-packer $packer
+
+if ($config | path exists) { backup-config $config }
+mv $checkout $config
+rm $staging
+
+sync-plugins
+print 'Packer installed and synced.'
