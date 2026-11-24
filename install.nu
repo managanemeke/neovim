@@ -16,7 +16,7 @@ def create_backup [] {
 }
 create_backup
 
-if not ($source | path exists) {
+if not ($config | path exists) {
   mkdir $"($config)"
 }
 cd $"($config)"
