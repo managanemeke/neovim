@@ -88,7 +88,7 @@ vim.keymap.set(
 vim.keymap.set(
   "v",
   "<leader>ae",
-  "<cmd>LLMSelectedTextHandler explain<cr>",
+  "<cmd>LLMSelectedTextHandler explain shortly<cr>",
   { desc = 'Agent explain' }
 )
 
