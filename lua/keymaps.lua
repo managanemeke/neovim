@@ -83,6 +83,17 @@ vim.keymap.set(
 
 ---
 
+--- ai
+
+vim.keymap.set(
+  "v",
+  "<leader>ae",
+  "<cmd>LLMSelectedTextHandler explain<cr>",
+  { desc = 'Agent explain' }
+)
+
+---
+
 --- files
 
 vim.keymap.set(

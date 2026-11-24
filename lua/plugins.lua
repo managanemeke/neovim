@@ -160,9 +160,6 @@ return require('packer').startup(function(use)
         max_tokens = 4096,
       })
     end,
-    keys = {
-      { "<leader>ae", mode = "v", "<cmd>LLMSelectedTextHandler explain this code<cr>" },
-    },
   })
 
   ---
