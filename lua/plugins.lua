@@ -139,6 +139,34 @@ return require('packer').startup(function(use)
     'ibhagwan/fzf-lua',
   })
 
+  --- ai
+
+  use({
+    "Kurama622/llm.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = {
+      "LLMSessionToggle",
+      "LLMSelectedTextHandler",
+      "LLMAppHandler",
+    },
+    config = function()
+      require("llm").setup({
+        url = "https://polza.ai/api/v1",
+        model = "deepseek/deepseek-v4-flash-0731",
+        api_type = "openai",
+        max_tokens = 4096,
+      })
+    end,
+    keys = {
+      { "<leader>ae", mode = "v", "<cmd>LLMSelectedTextHandler explain this code<cr>" },
+    },
+  })
+
+  ---
+
   ---
 
 end)
