@@ -154,7 +154,7 @@ return require('packer').startup(function(use)
     },
     config = function()
       require("llm").setup({
-        url = "https://polza.ai/api/v1",
+        url = "https://polza.ai/api/v1/chat/completions",
         model = "deepseek/deepseek-v4-flash-0731",
         api_type = "openai",
         max_tokens = 4096,
