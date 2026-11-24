@@ -16,6 +16,9 @@ def create_backup [] {
 }
 create_backup
 
+if not ($source | path exists) {
+  mkdir $"($config)"
+}
 cd $"($config)"
 git clone "https://github.com/managanemeke/neovim" $nvim
 cd $nvim
