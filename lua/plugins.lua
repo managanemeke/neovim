@@ -142,7 +142,7 @@ return require('packer').startup(function(use)
   --- ai
 
   use({
-    "Kurama622/llm.nvim",
+    "managanemeke/llm.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
