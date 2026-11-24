@@ -3,11 +3,20 @@
 let home = $nu.home-dir
 let share = $"($home)/.local/share"
 let nvim = "nvim"
+let config = $"($home)/.config"
+let config_nvim = $"($config)/($nvim)"
 
-rm -rf $"($home)/.config/($nvim)_backup/"
-mv $"($home)/.config/($nvim)/" $"($home)/.config/($nvim)_backup/"
+def create_backup [] {
+  let source = $config_nvim
+  let destination = $"($config)/($nvim)_backup/"
+  rm -rf $"($destination)"
+  if ($source | path exists) {
+    mv $"($source)" $"($destination)"
+  }
+}
+create_backup
 
-cd $"($home)/.config/"
+cd $"($config)"
 git clone "https://github.com/managanemeke/neovim" $nvim
 cd $nvim
 rm -rf ".git"
