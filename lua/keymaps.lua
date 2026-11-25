@@ -11,8 +11,6 @@ map('', '<right>', ':echoe "Use hjkl, bro"<CR>', {noremap = true, silent = false
 -- Переключение вкладок с помощью TAB или shift-tab (akinsho/bufferline.nvim)
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', default_opts)
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', default_opts)
--- <F5> разные вариации нумераций строк, можно переключаться на ходу
-map('n', '<F5>', ':exec &nu==&rnu? "se nu!" : "se rnu!"<CR>', default_opts)
 
 -----------------------------------------------------------
 -- РЕЖИМЫ
@@ -129,6 +127,16 @@ vim.keymap.set(
   {
     silent = true,
     desc = 'Maximize toggle',
+  }
+)
+---
+---
+vim.keymap.set(
+  'n',
+  '<leader>l',
+  '<cmd>exec &nu==&rnu? "se nu!" : "se rnu!"<cr>',
+  {
+    desc = 'Lines toggle',
   }
 )
 ---
