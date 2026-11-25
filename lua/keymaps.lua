@@ -24,16 +24,6 @@ map('i', 'jk', '<Esc>', {noremap = true, silent = true})
 -----------------------------------------------------------
 -- Выключить подсветку поиска через комбинацию ,+<space>
 map('n', ',<space>', ':nohlsearch<CR>', {noremap = true})
--- Fuzzy Search. CTRL+a для поиска по файлам, CTRL+p для поиска по буфферам
-map('n', '<C-a>', [[ <cmd>lua require('telescope.builtin').find_files()<cr> ]], default_opts)
-map('n', '<C-p>', [[ <cmd>lua require('telescope.builtin').buffers()<cr> ]], default_opts)
--- <S-F5> Греповский поиск слова под курсором
-map('n', '<S-F5>', [[<cmd>lua require('telescope.builtin').grep_string()<cr>]], default_opts)
--- <S-F4> Греповский поиск слова в модальном окошке
-map('n', '<S-F4>', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], default_opts)
------------------------------------------------------------
--- ФАЙЛЫ
------------------------------------------------------------
 -- <F8>  Показ дерева классов и функций, плагин majutsushi/tagbar
 map('n', '<F8>', ':TagbarToggle<CR>', default_opts)
 
