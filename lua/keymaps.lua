@@ -127,6 +127,17 @@ vim.keymap.set(
   }
 )
 ---
+---
+vim.keymap.set(
+  'n',
+  '<leader>m',
+  '<cmd>MaximizerToggle<CR>',
+  {
+    silent = true,
+    desc = 'Maximize toggle',
+  }
+)
+---
 
 --- default
 
