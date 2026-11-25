@@ -24,8 +24,6 @@ map('i', 'jk', '<Esc>', {noremap = true, silent = true})
 -----------------------------------------------------------
 -- Выключить подсветку поиска через комбинацию ,+<space>
 map('n', ',<space>', ':nohlsearch<CR>', {noremap = true})
--- <F8>  Показ дерева классов и функций, плагин majutsushi/tagbar
-map('n', '<F8>', ':TagbarToggle<CR>', default_opts)
 
 --- git
 
@@ -90,7 +88,13 @@ vim.keymap.set(
   "n",
   "<leader>f",
   "<CMD>Oil<CR>",
-  { desc = "Toggle files" }
+  { desc = "Files toggle" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>b",
+  "<CMD>TagbarToggle<CR>",
+  { desc = "Blocks toggle" }
 )
 
 ---
