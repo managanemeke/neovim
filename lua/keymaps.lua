@@ -31,7 +31,7 @@ vim.keymap.set(
   function()
     require('inlinediff').toggle()
   end,
-  { desc = 'Git: Differences toggle' }
+  { desc = 'git: differences toggle' }
 )
 
 vim.keymap.set(
@@ -43,7 +43,7 @@ vim.keymap.set(
     if s > e then s, e = e, s end
     require('gitsigns').reset_hunk({ s, e })
   end,
-  { desc = 'Git: Undo selected' }
+  { desc = 'git: undo selected' }
 )
 
 ---
@@ -56,7 +56,7 @@ vim.keymap.set(
   function()
     require('fzf-lua').files()
   end,
-  { desc = 'Search file' }
+  { desc = 'search: file' }
 )
 vim.keymap.set(
   'n',
@@ -64,7 +64,7 @@ vim.keymap.set(
   function()
     require('fzf-lua').live_grep()
   end,
-  { desc = 'Search string' }
+  { desc = 'search: string' }
 )
 
 ---
@@ -75,7 +75,7 @@ vim.keymap.set(
   "v",
   "<leader>ae",
   "<cmd>LLMSelectedTextHandler explain shortly<cr>",
-  { desc = 'Agent explain' }
+  { desc = 'agent: explain' }
 )
 
 ---
@@ -86,28 +86,47 @@ vim.keymap.set(
   "n",
   "<leader>f",
   "<CMD>Oil<CR>",
-  { desc = "Files toggle" }
+  { desc = "files: toggle" }
 )
+
+---
+
+--- blocks
+
 vim.keymap.set(
   "n",
   "<leader>b",
   "<CMD>TagbarToggle<CR>",
-  { desc = "Blocks toggle" }
+  { desc = "blocks: toggle" }
 )
 
 ---
 
+--- clipboard
+
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader>c',
+  '"+y',
+  { desc = 'clipboard: copy' }
+)
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader>v',
+  '"+p',
+  { desc = 'clipboard: velcro' }
+)
+
 ---
-vim.keymap.set({'n', 'x'}, '<leader>c', '"+y', { desc = 'Yank to clipboard' })
-vim.keymap.set({'n', 'x'}, '<leader>v', '"+p', { desc = 'Paste from clipboard' })
----
----
+
+--- terminal
+
 vim.keymap.set(
   'n',
   '<leader>t',
   ':terminal<CR>a',
   {
-    desc = 'Open terminal in new buffer',
+    desc = 'terminal: open',
   }
 )
 vim.keymap.set(
@@ -115,39 +134,46 @@ vim.keymap.set(
   'jk',
   [[<C-\><C-n>]],
   {
-    desc = "Exit terminal mode"
+    desc = "terminal: switch to normal mode"
   }
 )
+
 ---
----
+
+--- window
+
 vim.keymap.set(
   'n',
-  '<leader>m',
+  '<leader>wm',
   '<cmd>MaximizerToggle<CR>',
   {
     silent = true,
-    desc = 'Maximize toggle',
+    desc = 'window: maximize',
   }
 )
+
 ---
----
+
+--- lines
+
 vim.keymap.set(
   'n',
   '<leader>l',
   '<cmd>exec &nu==&rnu? "se nu!" : "se rnu!"<cr>',
   {
-    desc = 'Lines toggle',
+    desc = 'lines: toggle',
   }
 )
+
 ---
 
---- default
+--- common
 
 vim.keymap.set(
   'x',
   '.',
   ':normal .<CR>',
-  { desc = 'Repeat in visual mode' }
+  { desc = 'repeat in visual mode' }
 )
 
 ---
