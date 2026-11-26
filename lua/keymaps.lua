@@ -85,7 +85,13 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>f",
-  "<CMD>Oil<CR>",
+  function()
+    if vim.bo.filetype == "oil" then
+      require("oil").close()
+    else
+      vim.cmd("Oil")
+    end
+  end,
   { desc = "files: toggle" }
 )
 
