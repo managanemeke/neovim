@@ -168,6 +168,13 @@ return require('packer').startup(function(use)
 
   ---
 
+  --- typing
+
+  use({
+    "NStefan002/speedtyper.nvim",
+    branch = "v2",
+  })
+
   ---
 
 end)
